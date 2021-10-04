@@ -1,6 +1,6 @@
-class CreateComic < ActiveRecord::Migration[5.2]
+class CreateComicbook < ActiveRecord::Migration[5.2]
   def change
-    create_table :comics do |t|
+    create_table :comicbooks do |t|
       t.string :title
       t.integer :issue_number
       t.string :publisher

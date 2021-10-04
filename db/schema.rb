@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2021_10_04_190509) do
 
-  create_table "comics", force: :cascade do |t|
+  create_table "comicbooks", force: :cascade do |t|
     t.string "title"
     t.integer "issue_number"
     t.string "publisher"
