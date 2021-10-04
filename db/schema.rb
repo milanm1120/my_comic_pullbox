@@ -16,9 +16,11 @@ ActiveRecord::Schema.define(version: 2021_10_04_190509) do
     t.string "title"
     t.integer "issue_number"
     t.string "publisher"
+    t.integer "year"
     t.string "writer"
     t.string "artist"
     t.float "cover_price"
+    t.text "description"
   end
 
   create_table "users", force: :cascade do |t|
