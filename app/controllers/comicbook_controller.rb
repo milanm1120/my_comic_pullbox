@@ -21,9 +21,11 @@ class ComicbookController < ApplicationController
 
     end
 
-    #Action To Create New Item
+    #Action To Create New Item, new enteries created in the form is sent here.
     post '/mycomicbooks' do
-    
+        @comicbook = Comicbook.new(params)
+        binding.pry
+        @comicbook.save
     end
 
     #Action To Edit Specific Item
