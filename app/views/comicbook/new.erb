@@ -1,0 +1,23 @@
+<h1> Add New Comic To Your Pullbox: </h1>
+
+<form method='POST' action='/mycomicbooks'>
+    <p>Title: <input type='text' name='title'/></p>
+    <p>Issue Number: <input type='text' name='issue_number'/></p>
+    <p>Publisher: <input type='radio' id="DC Comics" name='publisher' value="DC Comics"/><label for="dccomics">DC Comics</label>
+    <input type='radio' id="Marvel Comics" name='publisher' value="Marvel Comics"/><label for="marvel">Marvel Comics</label>
+    <input type='radio' id="Image Comics" name='publisher' value="Image Comics"/><label for="imagecomics">Image Comics</label>
+    <input type='radio' id="BOOM! Studios" name='publisher' value="BOOM! Studios"/><label for="boomstudios">BOOM! Studios</label>
+    <input type='radio' id="IDW Publishing" name='publisher' value="IDW Publishing"/><label for="idwpublishing">IDW Publishing</label></p>
+    <p>Other: <input type='text' name='publisher'/></p>
+
+    <p>Year: <input type='text' name='year'/></p>
+    <p>Writer: <input type='text' name='writer'/></p>
+    <p>Artist: <input type='text' name='artist'/></p>
+    <p>Price: <input type='text' name='cover_price'/></p>
+    <p>Description: <br><textarea name='description' cols=100 rows=5></textarea></p>
+
+    <input type='submit' value='submit comicbook' id='submit'/>
+
+</form>
+
+<!-- name= sets the key of the params hash, so it needs to match the db values. -->
