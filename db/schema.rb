@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_04_190509) do
+ActiveRecord::Schema.define(version: 2021_10_06_174907) do
 
   create_table "comicbooks", force: :cascade do |t|
     t.string "title"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 2021_10_04_190509) do
     t.string "artist"
     t.float "cover_price"
     t.text "description"
+    t.integer "user_id"
   end
 
   create_table "users", force: :cascade do |t|
