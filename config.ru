@@ -9,4 +9,5 @@ end
 
 use Rack::MethodOverride    #Allows form to submit a 'PUT', 'PATCH', or 'DELETE' request
 use ComicbookController
+use UserController
 run ApplicationController
