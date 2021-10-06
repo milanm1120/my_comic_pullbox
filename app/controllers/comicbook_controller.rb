@@ -18,24 +18,26 @@ class ComicbookController < ApplicationController
 
     #Form To Edit A Specific Item
     get '/mycomicbooks/:id/edit' do
-
+        @comicbook = Comicbook.find(param[:id])
     end
 
     #Action To Create New Item, new enteries created in the form is sent here.
     post '/mycomicbooks' do
         @comicbook = Comicbook.new(params)
-        binding.pry
+        # binding.pry
+        @comicbooks = Comicbook.all
         @comicbook.save
+        redirect "/mycomicbooks" #redirect makes a brand new instance of our application controller
     end
 
     #Action To Edit Specific Item
     patch '/mycomicbooks/:id' do
-    
+        @comicbook = Comicbook.find(params[:id])
     end
 
     #Delete Specific Item
     delete '/mycomicbooks/:id' do
-    
+        @comicbook = Comicbook.find(params[:id])
     end
 
 
