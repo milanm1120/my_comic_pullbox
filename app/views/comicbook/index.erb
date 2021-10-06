@@ -1,6 +1,7 @@
 <h1> My Comic Pullbox</h1>
 <ul>
     <% @comicbooks.each do |c| %>
-        <li><%= c.title %> #<%= c.issue_number %></li>
+        <li><a href="/mycomicbooks/<%=c.id%>"><%= c.title %> #<%= c.issue_number %></a></li>
     <% end %>
 </ul>
+

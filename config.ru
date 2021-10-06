@@ -7,5 +7,6 @@ end
 
 # Add all controllers here!
 
+use Rack::MethodOverride    #Allows form to submit a 'PUT', 'PATCH', or 'DELETE' request
 use ComicbookController
 run ApplicationController

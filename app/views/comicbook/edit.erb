@@ -1,0 +1,16 @@
+<h1> Make Changes to  <%= @comicbook.title %></h1>
+
+<form method='POST' action='/mycomicbooks/<%=@comicbook.id%>'>      <!--method can only be 'GET' or 'POST' request. -->
+    <input name="_method" value="PATCH" type="hidden" />            <!-- middleware to submit a 'PATCH' request. -->
+        <p>Title: <input type='text' name='comicbook[title]' value='<%=@comicbook.title%>'/></p>
+        <p>Issue Number: <input type='text' name='comicbook[issue_number]' value='<%=@comicbook.issue_number%>'/></p>
+        <p>Publisher: <input type="text" name='comicbook[publisher]' value='<%=@comicbook.publisher%>'/></p>
+        <p>Year: <input type='text' name='comicbook[year]' value='<%=@comicbook.year%>'/></p>
+        <p>Writer: <input type='text' name='comicbook[writer]' value='<%=@comicbook.writer%>'/></p>
+        <p>Artist: <input type='text' name='comicbook[artist]' value='<%=@comicbook.artist%>'/></p>
+        <p>Price: <input type='text' name='comicbook[cover_price]' value='<%=@comicbook.cover_price%>'/></p>
+        <p>Description: <br><textarea name='comicbook[description]' cols=100 rows=5>Update Description</textarea></p>
+
+    <input type='submit' value='Update Comicbook' id='submit'/>
+
+</form>

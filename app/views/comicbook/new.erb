@@ -1,16 +1,16 @@
 <h1> Add New Comic To Your Pullbox: </h1>
 
 <form method='POST' action='/mycomicbooks'>
-    <p>Title: <input type='text' name='title'/></p>
-    <p>Issue Number: <input type='text' name='issue_number'/></p>
-    <p>Publisher: <input type="text" name="publisher"/></p>
-    <p>Year: <input type='text' name='year'/></p>
-    <p>Writer: <input type='text' name='writer'/></p>
-    <p>Artist: <input type='text' name='artist'/></p>
-    <p>Price: <input type='text' name='cover_price'/></p>
-    <p>Description: <br><textarea name='description' cols=100 rows=5></textarea></p>
+    <p>Title: <input type='text' name='comicbook[title]'/></p>
+    <p>Issue Number: <input type='text' name='comicbook[issue_number]'/></p>
+    <p>Publisher: <input type="text" name='comicbook[publisher]'/></p>
+    <p>Year: <input type='text' name='comicbook[year]'/></p>
+    <p>Writer: <input type='text' name='comicbook[writer]'/></p>
+    <p>Artist: <input type='text' name='comicbook[artist]'/></p>
+    <p>Price: <input type='text' name='comicbook[cover_price]'/></p>
+    <p>Description: <br><textarea name='comicbook[description]' cols=100 rows=5></textarea></p>
 
-    <input type='submit' value='submit comicbook' id='submit'/>
+    <input type='submit' value='Add To Your List' id='submit'/>
 
 </form>
 
