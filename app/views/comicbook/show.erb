@@ -1,5 +1,8 @@
 <h1><%= @comicbook.title %></h1>
-
+<% if @comicbook.issue_number %> <h4>Issue:<%= @comicbook.issue_number %><h4> <% end %>
+<% if @comicbook.publisher %> <h4>Publisher: <%= @comicbook.publisher %><h4> <% end %>
+<% if @comicbook.writer %> <h4>Writer: <%= @comicbook.writer %><h4> <% end %>
+<% if @comicbook.description %> <h4>Description: <%= @comicbook.description %><h4> <% end %>
 
 
 <a href="/mycomicbooks/<%=@comicbook.id%>/edit"><button>Edit Comicbook Details</button></a>

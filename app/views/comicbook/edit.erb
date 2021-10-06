@@ -9,7 +9,7 @@
         <p>Writer: <input type='text' name='comicbook[writer]' value='<%=@comicbook.writer%>'/></p>
         <p>Artist: <input type='text' name='comicbook[artist]' value='<%=@comicbook.artist%>'/></p>
         <p>Price: <input type='text' name='comicbook[cover_price]' value='<%=@comicbook.cover_price%>'/></p>
-        <p>Description: <br><textarea name='comicbook[description]' cols=100 rows=5>Update Description</textarea></p>
+        <p>Description: <br><textarea name='comicbook[description]' cols=100 rows=5 >'<%=@comicbook.description%>'</textarea></p>
 
     <input type='submit' value='Update Comicbook' id='submit'/>
 
