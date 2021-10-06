@@ -42,7 +42,7 @@ class ComicbookController < ApplicationController
     delete '/mycomicbooks/:id' do
         @comicbook = Comicbook.find(params[:id])
         @comicbook.destroy
-        redirect :"mycomicbooks"
+        redirect :'/mycomicbooks'
     end
 
 

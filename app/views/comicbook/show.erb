@@ -1,4 +1,10 @@
 <h1><%= @comicbook.title %></h1>
 
 
+
 <a href="/mycomicbooks/<%=@comicbook.id%>/edit"><button>Edit Comicbook Details</button></a>
+
+<form method='POST' action='/mycomicbooks/<%=@comicbook.id%>'>
+    <input name="_method" value="DELETE" type="hidden" />
+    <input type="submit" value="Delete Comicboook" id="submit">
+</form>
