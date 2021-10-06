@@ -41,6 +41,8 @@ class ComicbookController < ApplicationController
     #Delete Specific Item
     delete '/mycomicbooks/:id' do
         @comicbook = Comicbook.find(params[:id])
+        @comicbook.destroy
+        redirect :"mycomicbooks"
     end
 
 
