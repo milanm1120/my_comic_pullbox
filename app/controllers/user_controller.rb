@@ -10,7 +10,14 @@ class UserController < ApplicationController
         if !@user.save    
             redirect to '/signup'
         else
+            @user.save
+            session[:user_id] = @user.id
             redirect to '/mycomicbooks'
         end
+    end
+
+    post '/logout' do
+        session.clear
+        redirect to '/login'
     end
 end

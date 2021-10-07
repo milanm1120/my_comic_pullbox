@@ -1,7 +1,12 @@
 <h1> My Comic Pullbox</h1>
+
 <ul>
     <% @comicbooks.each do |c| %>
         <li><a href="/mycomicbooks/<%=c.id%>"><%= c.title %> #<%= c.issue_number %></a></li>
     <% end %>
 </ul>
+
+<form method='POST' action='/logout'>
+    <input type='submit' value='Log Out'>
+</form>
 
