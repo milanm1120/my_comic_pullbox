@@ -4,6 +4,7 @@
 <% if @comicbook.writer %> <h4>Writer: <%= @comicbook.writer %><h4> <% end %>
 <% if @comicbook.description %> <h4>Description: <%= @comicbook.description %><h4> <% end %>
 
+<% if @comicbook.user_id == current_user.id %>
 
 <a href="/mycomicbooks/<%=@comicbook.id%>/edit"><button>Edit Comicbook Details</button></a>
 
@@ -11,3 +12,5 @@
     <input name="_method" value="DELETE" type="hidden" />
     <input type="submit" value="Delete Comicboook" id="submit">
 </form>
+
+<%end%>
