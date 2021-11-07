@@ -1,6 +1,11 @@
 
-<a href="/mycomicbooks"> My Pull List</a> <a href="/mycomicbooks/new"> Add To My Pull List</a>
-<h1> TEST </h1>
+<a href="/users/:id"> My Pull List</a> <a href="/mycomicbooks/new"> Add To My Pull List</a>
+<h1> Hello <%= @user %>! My Digital Pull List </h1>
+
+<% Comicbook.all.each do |c| %>
+    <li><a href="/mycomicbooks/<%=c.id%>"><%= c.title %> #<%= c.issue_number %></a></li>
+<% end %>
+
 
 
 

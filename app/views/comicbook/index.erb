@@ -3,13 +3,13 @@
     <head>
         <meta charset="utf-8">
         <!-- Navigation Bar -->
-        <a href="/mycomicbooks"> My Pull List</a> <a href="/mycomicbooks/new"> Add To My Pull List</a>
+        <a href="/users/:id"> My Pull List</a> <a href="/mycomicbooks/new"> Add To My Pull List</a>
         <title>My Comic Pullbox</title>
 
     </head>
     <body>
     <header class='header'>
-        <h1> My Comic Pullbox</h1>
+        <h1> ALL COMICS LISTED IN DATABASE</h1>
     </header>
             <ul>
                 <% @comicbooks.each do |c| %>

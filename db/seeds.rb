@@ -1,4 +1,6 @@
-milan=User.create(firstname: "Milan", lastname: "Mody", email: "milanm1120@gmail.com", username: "milanm1120", password:"1234")
+milan=User.create(firstname: "Milan", lastname: "Mody", email: "milanm1120@gmail.com", username: "milan", password:"1234")
+bob=User.create(firstname: "Bob", lastname: "Bobby", email: "bob@bob.com", username: "bob", password: "1234")
+joe=User.create(firstname: "Joe", lastname: "Bobby", email: "joe@bob.com", username: "joe", password: "1234")
 
 Comicbook.find_or_create_by(title: "Batman", issue_number: 100, publisher: "DC Comics", year: 2020, writer: "James Tynion IV" , artist: "Jorge Jimenez", cover_price: 6.99, description: "Ending to 'The Joker War'")
 

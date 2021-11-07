@@ -9,10 +9,10 @@ class UsersController < ApplicationController
     end
 
     post '/login' do
-        @user = User.find_by(username: params[:username])
-        if @user && @user.authenticate(params[:password]) #order matters, finds user first and then authenticates password
-            session[:user_id] = @user.id
-            redirect to "/users/#{@user.id}"
+        user = User.find_by(username: params[:username])
+        if user && user.authenticate(params[:password]) #order matters, finds user first and then authenticates password
+            session[:user_id] = user.id
+            redirect to "/mycomicbooks"
         else
             redirect to '/login'
         end
@@ -40,7 +40,7 @@ class UsersController < ApplicationController
 
     get '/users/:id' do
         if logged_in?
-            user = User.find_by(id: params[:id])
+            @user = User.find_by_id(params[:id])
             erb :'/users/index'
         else
             redirect to '/login'
