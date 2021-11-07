@@ -33,8 +33,9 @@ class ComicbookController < ApplicationController
         @comicbook = Comicbook.new(params['comicbook'])
         # binding.pry
         @comicbook.user_id = session[:user_id] #assign new item to current session :user_id
+        
         @comicbook.save
-        redirect to :'/mycomicbooks' #redirect makes a brand new instance of our application controller
+        redirect to :'/users/index' #redirect makes a brand new instance of our application controller
     end
 
     #Action To Edit Specific Item

@@ -1,3 +1,5 @@
+milan=User.create(firstname: "Milan", lastname: "Mody", email: "milanm1120@gmail.com", username: "milanm1120", password:"1234")
+
 Comicbook.find_or_create_by(title: "Batman", issue_number: 100, publisher: "DC Comics", year: 2020, writer: "James Tynion IV" , artist: "Jorge Jimenez", cover_price: 6.99, description: "Ending to 'The Joker War'")
 
 Comicbook.find_or_create_by(title: "The Amazing Spider-Man", issue_number: 100, publisher: "Marvel", year: 1971, writer: "Stan Lee" , artist: "Gil Kane", cover_price: 0.15, description: "Peter Parker creates a potion to get rid of his powers.")

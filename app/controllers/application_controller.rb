@@ -6,11 +6,16 @@ class ApplicationController < Sinatra::Base
     set :public_folder, 'public'
     set :views, 'app/views'
     enable :sessions
-    set :session_secret, 'session_secret_comicbook'     #prevents information to taperred with
+    set :session_secret, 'session_secret_comicbook'     #prevents information to be tamperred with
+    register Sinatra::Flash
   end
 
   get "/" do
-    erb :'user/login'
+    if logged_in?
+      redirect to "/users/#{current_user.id}"
+    else
+      erb :'/user/login'
+    end
   end
 
   helpers do
@@ -26,7 +31,7 @@ class ApplicationController < Sinatra::Base
 private                             #private methods can only be called inside another method
 def redirect_if_not_logged_in
     if !logged_in?
-      redirect to '/login'
+      redirect to "/login"
   end
 end
 

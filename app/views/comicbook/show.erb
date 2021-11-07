@@ -1,16 +1,26 @@
-<h1><%= @comicbook.title %></h1>
-<% if @comicbook.issue_number %> <h4>Issue:<%= @comicbook.issue_number %><h4> <% end %>
-<% if @comicbook.publisher %> <h4>Publisher: <%= @comicbook.publisher %><h4> <% end %>
-<% if @comicbook.writer %> <h4>Writer: <%= @comicbook.writer %><h4> <% end %>
-<% if @comicbook.description %> <h4>Description: <%= @comicbook.description %><h4> <% end %>
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="../stylesheets/main.css">
+        <!-- Navigation Bar -->
+        <a href="/mycomicbooks"> My Pull List</a> <a href="/mycomicbooks/new"> Add To My Pull List</a>
+    </head>
+    <body>
+        <h1><%= @comicbook.title %></h1>
+        <% if @comicbook.issue_number %> <h4>Issue:<%= @comicbook.issue_number %></h4> <% end %>
+        <% if @comicbook.publisher %> <h4>Publisher: <%= @comicbook.publisher %></h4> <% end %>
+        <% if @comicbook.writer %> <h4>Writer: <%= @comicbook.writer %></h4> <% end %>
+        <% if @comicbook.description %> <h4>Description: <%= @comicbook.description %></h4> <% end %>
 
-<% if @comicbook.user_id == current_user.id %>
+        <% if @comicbook.user_id == current_user.id %>
 
-<a href="/mycomicbooks/<%=@comicbook.id%>/edit"><button>Edit Comicbook Details</button></a>
+        <a href="/mycomicbooks/<%=@comicbook.id%>/edit"><button>Edit Comicbook Details</button></a>
 
-<form method='POST' action='/mycomicbooks/<%=@comicbook.id%>'>
-    <input name="_method" value="DELETE" type="hidden" />
-    <input type="submit" value="Delete Comicboook" id="submit">
-</form>
+        <form method="POST" action="/mycomicbooks/<%=@comicbook.id%>">
+            <input name="_method" value="DELETE" type="hidden" />
+            <input type="submit" value="Delete Comicboook" id="submit">
+        </form>
 
-<%end%>
+        <%end%>
+    </body>
+</html>

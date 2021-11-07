@@ -1,12 +1,26 @@
-<h1> My Comic Pullbox</h1>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <!-- Navigation Bar -->
+        <a href="/mycomicbooks"> My Pull List</a> <a href="/mycomicbooks/new"> Add To My Pull List</a>
+        <title>My Comic Pullbox</title>
 
-<ul>
-    <% @comicbooks.each do |c| %>
-        <li><a href="/mycomicbooks/<%=c.id%>"><%= c.title %> #<%= c.issue_number %></a></li>
-    <% end %>
-</ul>
+    </head>
+    <body>
+    <header class='header'>
+        <h1> My Comic Pullbox</h1>
+    </header>
+            <ul>
+                <% @comicbooks.each do |c| %>
+                    <li><a href="/mycomicbooks/<%=c.id%>"><%= c.title %> #<%= c.issue_number %></a></li>
+                <% end %>
+            </ul>
 
-<form method='POST' action='/logout'>
-    <input type='submit' value='Log Out'>
-</form>
+            <form method='POST' action='/logout'>
+                <input type='submit' value='Log Out'>
+            </form>
+    </body>
 
+
+</html>
