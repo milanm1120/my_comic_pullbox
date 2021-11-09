@@ -3,7 +3,7 @@
     <head>
         <link rel="stylesheet" href="../stylesheets/main.css">
         <!-- Navigation Bar -->
-        <a href="/users/:id"> My Pull List</a> <a href="/mycomicbooks/new"> Add To My Pull List</a>
+        <a href="/users/<%=current_user.id%>"> My Pull List</a> <a href="/mycomicbooks/new"> Add To My Pull List</a>
     </head>
     <body>
         <h1><%= @comicbook.title %></h1>
