@@ -10,6 +10,7 @@
         <% if @comicbook.issue_number %> <h4>Issue:<%= @comicbook.issue_number %></h4> <% end %>
         <% if @comicbook.publisher %> <h4>Publisher: <%= @comicbook.publisher %></h4> <% end %>
         <% if @comicbook.writer %> <h4>Writer: <%= @comicbook.writer %></h4> <% end %>
+        <% if @comicbook.cover_price %> <h4>Cover Price: $<%= @comicbook.cover_price %></h4> <% end %>
         <% if @comicbook.description %> <h4>Description: <%= @comicbook.description %></h4> <% end %>
 
         <% if @comicbook.user_id == current_user.id %>

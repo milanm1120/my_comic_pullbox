@@ -14,7 +14,7 @@ class UsersController < ApplicationController
             session[:user_id] = user.id
             redirect to "/mycomicbooks"
         else
-            redirect to '/login'
+            redirect to "/login"
         end
     end
 
@@ -27,28 +27,29 @@ class UsersController < ApplicationController
     end
 
     post '/signup' do
-        user = User.new(firstname: params[:firstname], lastname: params[:lastname], email: params[:email], username: params[:username], password: params[:password])     #instantiating a new user
+        @user = User.new(firstname: params[:firstname], lastname: params[:lastname], email: params[:email], username: params[:username], password: params[:password])     #instantiating a new user
         # if user.firstname.blank? || user.lastname.blank? || user.email.blank? || user.username.blank? || user.password.blank? || User.find_by_email(params["email"])      # if any of the entry fields are blank or an already existing email address is added, it will redirect to signup
-        if user.valid?
-            user.save
-            session[:user_id] =user.id   
+        if @user.valid?
+            # binding.pry
+            session[:user_id] =@user.id   
+            @user.save
             redirect to "/users/#{current_user.id}"
         else
-            redirect '/signup'
+            redirect "/signup"
         end
     end
 
     get '/users/:id' do
-        if logged_in?
-            @user = User.find_by_id(params[:id])
-            erb :'/users/index'
+        if logged_in? && params[:id].to_i  == current_user.id
+            current_user #private method
+            erb :'/users/show'
         else
-            redirect to '/login'
+            redirect to "/login"
         end
     end
 
     post '/logout' do
         session.clear
-        redirect to '/login'
+        redirect to "/login"
     end
 end

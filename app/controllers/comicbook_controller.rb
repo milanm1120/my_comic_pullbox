@@ -6,6 +6,17 @@ class ComicbookController < ApplicationController
         erb :'/comicbook/index'
     end
 
+     #Action To Create New Item, new enteries created in the form is sent here.
+     post '/mycomicbooks' do
+        redirect_if_not_logged_in       #private method in applicaiton_controller to redirect if not logged in
+        @comicbook = Comicbook.new(params['comicbook'])
+        # binding.pry
+        @comicbook.user_id = session[:user_id] #assign new item to current session :user_id
+        
+        @comicbook.save
+        redirect to "/users/index" #redirect makes a brand new instance of our application controller
+    end
+
     #Form To Create New Item (new has to go above :id)
     get '/mycomicbooks/new' do
         redirect_if_not_logged_in       #private method in applicaiton_controller to redirect if not logged in
@@ -19,32 +30,13 @@ class ComicbookController < ApplicationController
         erb :'/comicbook/show'
     end
 
-    #Form To Edit A Specific Item
-    get '/mycomicbooks/:id/edit' do
-        redirect_if_not_logged_in       #private method in applicaiton_controller to redirect if not logged in
-        @comicbook = Comicbook.find(params[:id])
-        redirect_if_not_authorized  #private method
-        erb :'/comicbook/edit'
-    end
-
-    #Action To Create New Item, new enteries created in the form is sent here.
-    post '/mycomicbooks' do
-        redirect_if_not_logged_in       #private method in applicaiton_controller to redirect if not logged in
-        @comicbook = Comicbook.new(params['comicbook'])
-        # binding.pry
-        @comicbook.user_id = session[:user_id] #assign new item to current session :user_id
-        
-        @comicbook.save
-        redirect to :'/users/index' #redirect makes a brand new instance of our application controller
-    end
-
     #Action To Edit Specific Item
     patch '/mycomicbooks/:id' do
         redirect_if_not_logged_in       #private method in applicaiton_controller to redirect if not logged in
         @comicbook = Comicbook.find(params[:id])
         redirect_if_not_authorized  #private method
         @comicbook.update(params['comicbook'])
-        redirect to :"/mycomicbooks/#{@comicbook.id}"
+        redirect to "/mycomicbooks/#{@comicbook.id}"
     end
 
     #Delete Specific Item
@@ -53,13 +45,21 @@ class ComicbookController < ApplicationController
         @comicbook = Comicbook.find(params[:id])
         redirect_if_not_authorized  #private method
         @comicbook.destroy
-        redirect :'/mycomicbooks'
+        redirect to '/mycomicbooks'
+    end
+
+    #Form To Edit A Specific Item
+    get '/mycomicbooks/:id/edit' do
+        redirect_if_not_logged_in       #private method in applicaiton_controller to redirect if not logged in
+        @comicbook = Comicbook.find(params[:id])
+        redirect_if_not_authorized  #private method
+        erb :'/comicbook/edit'
     end
 
 private
 def redirect_if_not_authorized
     if @comicbook.user != current_user #allows only to user that created the item to edit/delete the item
-        redirect to '/mycomicbooks'
+        redirect to "/mycomicbooks"
     end
 end
 

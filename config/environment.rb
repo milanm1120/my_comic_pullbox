@@ -9,4 +9,4 @@ ActiveRecord::Base.establish_connection(
 )
 
 require './app/controllers/application_controller'
-require_all 'app'
+require_all 'app' #everything in app folder is set to require
