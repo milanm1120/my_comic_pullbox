@@ -31,8 +31,8 @@ class UsersController < ApplicationController
         # if user.firstname.blank? || user.lastname.blank? || user.email.blank? || user.username.blank? || user.password.blank? || User.find_by_email(params["email"])      # if any of the entry fields are blank or an already existing email address is added, it will redirect to signup
         if @user.valid?
             # binding.pry
-            session[:user_id] =@user.id   
             @user.save
+            session[:user_id] =@user.id
             redirect to "/users/#{current_user.id}"
         else
             redirect "/signup"
