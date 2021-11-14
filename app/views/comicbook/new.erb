@@ -11,16 +11,6 @@
     <p>Description: <br><textarea name='comicbook[description]' cols=100 rows=5></textarea></p>
 
     <input type='submit' value='Add To Your List' id='submit'/>
+    <a href="/users/<%=current_user.id%>"><button>Back To My Pullbox</button></a>
 
 </form>
-
-<!-- name= sets the key of the params hash, so it needs to match the db values. -->
-
-<!-- 
-<p>Publisher: <input type='radio' id='dc_comics' name='publisher' value='dccomics'/><label for='dccomics'>DC Comics</label>
-<input type='radio' id='marvel_comics' name='publisher' value='marvel'/><label for='marvel'>Marvel Comics</label>
-<input type='radio' id='image_comics' name='publisher' value='image'/><label for='imagecomics'>Image Comics</label>
-<input type='radio' id='boom_studios' name='publisher' value='boom'/><label for='boomstudios'>BOOM! Studios</label>
-<input type='radio' id='idw_publishing' name='publisher' value='idw'/><label for='idwpublishing'>IDW Publishing</label></p>
-<p>Other: <input type='text' name='publisher'/></p>
--->
