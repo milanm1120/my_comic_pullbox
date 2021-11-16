@@ -3,7 +3,7 @@
     <head>
         <link rel="stylesheet" href="../stylesheets/main.css">
         <!-- Navigation Bar -->
-        <a href="/users/<%=current_user.id%>"> My Pull List</a> || <a href="/mycomicbooks/new"> Add To My Pull List</a> || <a href="/mycomicbooks"> All Comicbook In Database</a>
+        <a href="/users/<%=current_user.id%>"> My Pull List</a> || <a href="/comicbooks/new"> Add To My Pull List</a> || <a href="/comicbooks"> All Comicbook In Database</a>
     </head>
     <body>
         <h1><%= @comicbook.title %></h1>
@@ -16,9 +16,9 @@
 
         <% if @comicbook.user_id == current_user.id %>
 
-        <a href="/mycomicbooks/<%=@comicbook.id%>/edit"><button>Edit Comicbook Details</button></a>
+        <a href="/comicbooks/<%=@comicbook.id%>/edit"><button>Edit Comicbook Details</button></a>
 
-        <form method="POST" action="/mycomicbooks/<%=@comicbook.id%>">
+        <form method="POST" action="/comicbooks/<%=@comicbook.id%>">
             <input name="_method" value="DELETE" type="hidden" />
             <input type="submit" value="Delete Comicboook" id="submit">
         </form>

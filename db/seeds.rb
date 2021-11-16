@@ -1,5 +1,5 @@
-# User.destroy_all
-# Comicbook.destroy_all
+User.destroy_all
+Comicbook.destroy_all
 
 milan=User.create(firstname: "Milan", lastname: "Mody", email: "milanm1120@gmail.com", username: "milan", password:"1234")
 bob=User.create(firstname: "Bob", lastname: "Bobby", email: "bob@bob.com", username: "bob", password: "1234")

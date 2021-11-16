@@ -1,4 +1,4 @@
-class CreateComicbook < ActiveRecord::Migration[5.2]
+class CreateComicbooks < ActiveRecord::Migration[5.2]
   def change
     create_table :comicbooks do |t|
       t.string :title

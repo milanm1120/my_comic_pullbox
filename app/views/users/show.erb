@@ -1,10 +1,10 @@
 
-<a href="/users/<%=current_user.id%>"> My Pull List</a> || <a href="/mycomicbooks/new"> Add To My Pull List</a> || <a href="/mycomicbooks"> All Comicbook In Database</a>
+<a href="/users/<%=current_user.id%>"> My Pull List</a> || <a href="/comicbooks/new"> Add To My Pull List</a> || <a href="/comicbooks"> All Comicbook In Database</a>
 <h1> Hello <%= current_user.firstname.capitalize %>! Here is your Digital Pull List! </h1>
 
 
 <% Comicbook.where(user_id: current_user.id).each do |c| %>
-    <li><a href="/mycomicbooks/<%=c.id%>"><%= c.title %> #<%= c.issue_number %></a></li>
+    <li><a href="/comicbooks/<%=c.id%>"><%= c.title %> #<%= c.issue_number %></a></li>
 <% end %><br>
 
 

@@ -1,6 +1,6 @@
-<h1> Make Changes to  <%= @comicbook.title %></h1>
+<h1> Make Changes to  "<%= @comicbook.title %>" Issue <%= @comicbook.issue_number %></h1>
 
-<form method='POST' action='/mycomicbooks/<%=@comicbook.id%>'>      <!--method can only be 'GET' or 'POST' request. -->
+<form method='POST' action='/comicbooks/<%=@comicbook.id%>'>      <!--method can only be 'GET' or 'POST' request. -->
     <input name="_method" value="PATCH" type="hidden" />            <!-- middleware to submit a 'PATCH' request. -->
         <p>Title: <input type='text' name='comicbook[title]' value='<%=@comicbook.title%>'/></p>
         <p>Issue Number: <input type='text' name='comicbook[issue_number]' value='<%=@comicbook.issue_number%>'/></p>
@@ -12,5 +12,6 @@
         <p>Description: <br><textarea name='comicbook[description]' cols=100 rows=5 >'<%=@comicbook.description%>'</textarea></p>
 
     <input type='submit' value='Update Comicbook' id='submit'/>
+    <a href="/users/<%=current_user.id%>"><button>Back To My Pullbox</button></a>
 
 </form>

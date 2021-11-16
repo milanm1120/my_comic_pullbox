@@ -10,11 +10,11 @@ class ApplicationController < Sinatra::Base
     register Sinatra::Flash
   end
 
-  get "/" do
+  get '/' do
     if logged_in?
-      redirect to "/users/#{current_user.id}"
+      erb :'/users/#{current_user.id}'
     else
-      erb :'/users/login'
+      redirect to "/login"
     end
   end
 

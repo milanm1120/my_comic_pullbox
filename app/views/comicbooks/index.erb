@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="utf-8">
         <!-- Navigation Bar -->
-        <a href="/users/<%=current_user.id%>"> My Pull List</a> || <a href="/mycomicbooks/new"> Add To My Pull List</a> || <a href="/mycomicbooks"> All Comicbook In Database</a>
+        <a href="/users/<%=current_user.id%>"> My Pull List</a> || <a href="/comicbooks/new"> Add To My Pull List</a> || <a href="/comicbooks"> All Comicbook In Database</a>
         <title>My Comic Pullbox</title>
 
     </head>
@@ -13,7 +13,7 @@
     </header>
             <ul>
                 <% @comicbooks.each do |c| %>
-                    <li><a href="/mycomicbooks/<%=c.id%>"><%= c.title %> #<%= c.issue_number %></a></li>
+                    <li><a href="/comicbooks/<%=c.id%>"><%= c.title %> #<%= c.issue_number %></a></li>
                 <% end %>
             </ul>
 
