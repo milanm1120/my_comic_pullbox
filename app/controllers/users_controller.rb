@@ -1,10 +1,10 @@
 class UsersController < ApplicationController
 
     get '/login' do
-        if logged_in?
-            redirect to "/users/#{current_user.id}"
-        else
+        if !logged_in?
             erb :'/login'
+        else
+            redirect to "/users/#{current_user.id}"
         end
     end
 
@@ -27,12 +27,12 @@ class UsersController < ApplicationController
     end
 
     post '/signup' do
-        @user = User.new(firstname: params[:firstname], lastname: params[:lastname], email: params[:email], username: params[:username], password: params[:password])     #instantiating a new user
+        @user = User.new(params[:user])     #instantiating a new user
         # if user.firstname.blank? || user.lastname.blank? || user.email.blank? || user.username.blank? || user.password.blank? || User.find_by_email(params['email'])      # if any of the entry fields are blank or an already existing email address is added, it will redirect to signup
         if @user.valid?
             # binding.pry
             @user.save
-            session[:user_id] =@user.id
+            session[:user_id] = @user.id
             redirect to "/users/#{current_user.id}"
         else
             redirect to '/signup'
@@ -42,7 +42,7 @@ class UsersController < ApplicationController
     get '/users/:id' do
         if logged_in? && params[:id].to_i  == current_user.id
             current_user #private method
-            erb :'/users/show'
+            erb :'/users/index'
         else
             redirect to "/login"
         end

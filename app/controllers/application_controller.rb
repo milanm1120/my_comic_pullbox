@@ -31,8 +31,9 @@ class ApplicationController < Sinatra::Base
 private                             #private methods can only be called inside another method
 def redirect_if_not_logged_in
     if !logged_in?
+      flash[:message] = "You need to log in to see this page!"
       redirect to "/login"
-  end
+    end
 end
 
 end

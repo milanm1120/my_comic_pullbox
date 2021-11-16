@@ -6,24 +6,20 @@ class ComicbookController < ApplicationController
         erb :'/comicbooks/index'
     end
 
-    #Offers form To Create New Item (new has to go above :id)
     get '/comicbooks/new' do    #NEW
         redirect_if_not_logged_in       
         erb :'/comicbooks/new'
     end
 
-     #Action To Create New Item, new enteries created in the form is sent here.
-     post '/comicbooks' do
+     post '/comicbooks' do      #CREATE
         redirect_if_not_logged_in       
-        @comicbook = Comicbook.new(params['comicbook'])
-        # binding.pry
-        @comicbook.user_id = session[:user_id] #assign new item to current session :user_id
-        
-        @comicbook.save
-        redirect to "/users/index" #redirect makes a brand new instance of our application controller
+        comicbook = Comicbook.new(params[:comicbook])
+        comicbook.user_id = session[:user_id] #assign new item to current session :user_id
+        comicbook.save
+        # redirect to "/users/show"
+        redirect to "/comicbooks/#{comicbook.id}"
     end
 
-    #View A Specific Item
     get '/comicbooks/:id' do    #SHOW
         redirect_if_not_logged_in       
         @comicbook = Comicbook.find_by(id: params[:id])
@@ -34,28 +30,25 @@ class ComicbookController < ApplicationController
         end
     end
 
-     #Offers form To Edit A Specific Item
-     get '/comicbooks/:id/edit' do
+     get '/comicbooks/:id/edit' do  #EDIT
         redirect_if_not_logged_in       
-        @comicbook = Comicbook.find(params[:id])
+        @comicbook = Comicbook.find_by_id(params[:id])
         redirect_if_not_authorized  #private method
         erb :'/comicbooks/edit'
     end
 
-    #Action To Edit/Update Specific Item
-    patch '/comicbooks/:id' do
+    patch '/comicbooks/:id' do  #UPDATE
         redirect_if_not_logged_in       
-        @comicbook = Comicbook.find(params[:id])
+        @comicbook = Comicbook.find_by_id(params[:id])
         redirect_if_not_authorized  #private method
-        @comicbook.update(params['comicbook'])
+        @comicbook.update(params[:comicbook])
         redirect to "/comicbooks/#{@comicbook.id}"
     end
 
-    #Destroy  Specific Item
-    delete '/comicbooks/:id' do
+    delete '/comicbooks/:id' do #DESTROY
         redirect_if_not_logged_in       
-        @comicbook = Comicbook.find(params[:id])
-        redirect_if_not_authorized  #private method
+        @comicbook = Comicbook.find_by_id(params[:id])
+        redirect_if_not_authorized
         @comicbook.destroy
         redirect to "/comicbooks"
     end
